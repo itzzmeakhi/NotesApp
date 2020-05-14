@@ -1,0 +1,68 @@
+<div class = "login-container">
+
+    <h4> Login here </h4>
+
+    <hr>
+
+    <form [formGroup] = "loginUserForm" (ngSubmit) = "onFormSubmit()">
+
+        <!-- User Email Section -->
+
+        <div class = "form-group">
+
+            <label for = "userEmail"> Email </label>
+
+            <input 
+                type = "text"
+                class = "form-control form-control-sm"
+                name = "userEmail"
+                formControlName = "userEmail"
+                id = "userEmail"
+                placeholder = "Your Email"
+                autocomplete = "off">
+
+            <div *ngIf = "(userEmail.touched || userEmail.dirty) && userEmail.invalid">
+                <p *ngIf = "userEmail.errors.required" class = "red"> Email is required. </p>
+                <p *ngIf = "userEmail.errors.email" class = "red"> Invalid Email. </p>
+            </div>
+
+        </div>
+
+        <!-- User Password Section -->
+
+        <div class = "form-group">
+
+            <label for = "userPassword"> Password </label>
+
+            <input
+                type = "password"
+                class = "form-control form-control-sm"
+                name = "userPassword"
+                formControlName = "userPassword"
+                id = "userPassword"
+                placeholder = "Your Password"
+                autocomplete = "off">
+
+            <div *ngIf = "(userPassword.touched || userPassword.dirty) && userPassword.invalid">
+                <p *ngIf = "userPassword.errors.required" class = "red"> Password is required </p>
+            </div>
+
+        </div>
+
+        <button
+            type = "submit"
+            class = "btn btn-success btn-sm">
+            Login
+        </button>
+
+        <p>Not registered yet?
+            <a
+                routerLink = "/signup">
+                Signup here..
+            </a>
+        </p>
+
+
+    </form>
+
+</div>

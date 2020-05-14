@@ -1,0 +1,39 @@
+.navbar-section {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+    overflow: hidden;
+    margin-top: 30px;
+    width: 100vw;
+    position: fixed;
+}
+
+.navbar-section a {
+    display: block;
+    color: #2c3e50;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    text-shadow: 2px 2px #7f8c8d;
+    font-size: 20px;
+}
+
+.navbar-section a:hover,
+.navbar-section:focus {
+    text-decoration: none;
+}
+
+.hr-line:after {
+    content:'';
+    position:absolute;
+    display:block;
+    top:13%;
+    height:3px;
+    width: 500px;
+    background:#2c3e50;
+    left:50%;
+    z-index:1;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+}

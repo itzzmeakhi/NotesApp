@@ -1,0 +1,48 @@
+.signup-container {
+    width: 40%;
+    margin: 100px auto 0px auto;
+    padding: 60px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    box-shadow: 10px 10px 11px -3px rgba(0, 0, 0,1);
+}
+
+h4 {
+    margin-top: -20px;
+    text-align: center;
+    color: #2ecc71;
+}
+
+hr {
+    background-color: #2ecc71;
+    margin: 0 110px;
+    padding: 1px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 5px;
+    font-weight: 500;
+}
+
+input:active,
+input:focus,
+button:active,
+button:focus {
+    outline: none;
+    box-shadow: none;
+    outline-width: 0;
+}
+
+input.ng-dirty.ng-invalid,
+input.ng-touched.ng-invalid {
+    border: 2px solid #c0392b;
+}
+
+.red {
+    color: #c0392b;
+}
+
+.green {
+    color: #27ae60;
+}
