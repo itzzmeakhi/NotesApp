@@ -3,7 +3,7 @@
     margin: 100px auto 0px auto;
     padding: 60px;
     background-color: #f4f4f4;
-    border-radius: 20px;
+    border-radius: 40px 10px 40px 10px;
     box-shadow: 10px 10px 11px -3px rgba(0, 0, 0,1);
 }
 
@@ -45,4 +45,12 @@ input.ng-touched.ng-invalid {
 
 .green {
     color: #27ae60;
+}
+
+label {
+    font-weight: 500;
+}
+
+.spinner {
+    margin-top: 40px;
 }

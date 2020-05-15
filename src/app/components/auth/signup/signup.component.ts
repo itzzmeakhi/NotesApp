@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { Subscription } from 'rxjs';
 
 import { PasswordValidators } from './../../../shared/validators/password.validators';
 import { AuthService } from './../auth.service';
@@ -11,9 +13,12 @@ import { User } from './../../../shared/models/user.model';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, OnDestroy {
 
   userSignupForm : FormGroup;
+  isLoading : boolean = false;
+  signupSubs : Subscription;
+
 
   constructor(private authService : AuthService,
               private router : Router) { }
@@ -44,18 +49,27 @@ export class SignupComponent implements OnInit {
   }
 
   onFormSubmit() {
+    this.isLoading = true;
     const userData = new User(
       this.userEmail.value,
       this.userPassword.value,
       this.userName.value,
       this.userLocation.value,
+      null,
       null
     );
-    this.authService.onSignup(userData)
+    this.signupSubs = this.authService.onSignup(userData)
       .subscribe(response => {
         // console.log(response);
+        this.isLoading = false;
         this.router.navigate(['/home']);
       })
+  }
+
+  ngOnDestroy() {
+    if(this.signupSubs) {
+      this.signupSubs.unsubscribe();
+    }
   }
 
 }

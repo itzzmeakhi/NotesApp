@@ -17,7 +17,7 @@ const appRoutes : Routes = [
     { path : 'login', component : LoginComponent },
     { path : 'signup', component : SignupComponent },
     { path : 'home', component : HomeComponent, canActivate : [AuthGuardService], children : [
-        { path : '', component : AddNotesComponent, pathMatch : 'full' },
+        { path : '', component : AddNotesComponent },
         { path : 'notes', component : NotesComponent },
         { path : 'profile', component : ProfileComponent }
     ]}

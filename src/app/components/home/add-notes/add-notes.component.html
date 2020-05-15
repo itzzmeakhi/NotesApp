@@ -1,36 +1,73 @@
-<div class = "add-notes-container">
+<div class = "add-notes-container" *ngIf = "!isLoading">
 
-    <form>
+    <h4> Add Note here </h4>
+
+    <hr>
+
+    <form [formGroup] = "addNotesForm" (ngSubmit) = "onFormSubmit()">
+
+        <!-- Note Title Section -->
 
         <div class = "form-group">
 
             <label for = "noteTitle"> Title </label>
 
-            <input
+            <input 
                 type = "text"
                 class = "form-control form-control-sm"
                 name = "noteTitle"
+                formControlName = "noteTitle"
                 id = "noteTitle"
                 placeholder = "Note Title"
                 autocomplete = "off">
 
+            <div *ngIf = "(noteTitle.touched || noteTitle.dirty) && noteTitle.invalid">
+                <p *ngIf = "noteTitle.errors.required" class = "red"> Title is required. </p>
+            </div>
+
         </div>
+
+        <!-- Note Description Section -->
 
         <div class = "form-group">
 
-            <label for = "noteText"> Note to save </label>
+            <label for = "userPassword"> Description </label>
 
             <textarea
-                type = "text"
-                class = "form-control form-control-sm"
-                name = "noteText"
-                id = "noteText"
+                cols = "10"
                 rows = "5"
-                cols = "10">
+                class = "form-control form-control-sm"
+                name = "noteDescription"
+                formControlName = "noteDescription"
+                id = "noteDescription"
+                autocomplete = "off">
             </textarea>
-            
+
+            <div *ngIf = "(noteDescription.touched || noteDescription.dirty) && noteDescription.invalid">
+                <p *ngIf = "noteDescription.errors.required" class = "red"> Description is required </p>
+            </div>
+
         </div>
+
+        <button
+            type = "submit"
+            class = "btn btn-success btn-sm">
+            Save
+        </button>
+
+        <button
+            type = "button"
+            class = "btn btn-danger btn-sm"
+            (click) = "onClearForm()">
+            Clear
+        </button>
 
     </form>
 
+</div>
+
+<div class = "spinner" *ngIf = "isLoading">
+    <div class = "spinner-border" role = "status" style = "width: 3rem; height: 3rem;">
+      <span class = "sr-only">Loading...</span>
+    </div>
 </div>

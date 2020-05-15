@@ -1,5 +1,64 @@
 .add-notes-container {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
+    position: absolute;
+    left: 30%;
+    width: 40%;
+    margin: 20px auto 0px auto;
+    padding: 60px;
+    background-color: #f4f4f4;
+    border-radius: 40px 10px 40px 10px;
+    box-shadow: 10px 10px 11px -3px rgba(0, 0, 0,1);
+}
+
+h4 {
+    margin-top: -20px;
+    text-align: center;
+    color: #2ecc71;
+}
+
+hr {
+    background-color: #2ecc71;
+    margin: 0 110px;
+    padding: 1px;
+    margin-bottom: 20px;
+}
+
+input:active,
+input:focus,
+button:active,
+button:focus,
+textarea:active,
+textarea:focus {
+    outline: none;
+    box-shadow: none;
+    outline-width: 0;
+}
+
+input.ng-dirty.ng-invalid,
+input.ng-touched.ng-invalid,
+textarea.ng-dirty.ng-invalid,
+textarea.ng-touched.ng-invalid {
+    border: 2px solid #c0392b;
+}
+
+.red {
+    color: #c0392b;
+}
+
+.green {
+    color: #27ae60;
+}
+
+label {
+    font-weight: 500;
+}
+
+button {
+    margin: 5px;
+}
+
+.spinner {
+    position: absolute;
+    left: 47%;
+    width: 6%;
+    margin-top: 40px;
 }

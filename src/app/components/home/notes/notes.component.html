@@ -1,1 +1,18 @@
-<p>notes works!</p>
+<div class = "notes-container" *ngIf = "!isLoading">
+
+    <div class = "notes-list" *ngIf = "!isNotesDataEmpty">
+
+        <app-notes-list 
+            *ngFor = "let note of availableNotes"
+            [note] = "note">
+        </app-notes-list>
+
+    </div>
+
+</div>
+
+<div class = "spinner" *ngIf = "isLoading">
+    <div class = "spinner-border" role = "status" style = "width: 3rem; height: 3rem;">
+      <span class = "sr-only">Loading...</span>
+    </div>
+</div>

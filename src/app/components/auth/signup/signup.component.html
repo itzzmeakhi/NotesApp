@@ -1,4 +1,4 @@
-<div class = "signup-container">
+<div class = "signup-container" *ngIf = "!isLoading">
 
     <h4> Signup here </h4>
 
@@ -115,4 +115,10 @@
 
     </form>
 
+</div>
+
+<div class = "text-center spinner" *ngIf = "isLoading">
+    <div class = "spinner-border" role = "status" style = "width: 3rem; height: 3rem;">
+      <span class = "sr-only">Loading...</span>
+    </div>
 </div>

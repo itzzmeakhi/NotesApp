@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddNotesComponent } from './components/home/add-notes/add-notes.component';
 import { NotesComponent } from './components/home/notes/notes.component';
 import { ProfileComponent } from './components/home/profile/profile.component';
+import { NotesListComponent } from './components/home/notes/notes-list/notes-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProfileComponent } from './components/home/profile/profile.component';
     NavbarComponent,
     AddNotesComponent,
     NotesComponent,
-    ProfileComponent
+    ProfileComponent,
+    NotesListComponent
   ],
   imports: [
     BrowserModule,

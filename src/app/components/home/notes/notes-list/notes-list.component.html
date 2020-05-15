@@ -1,0 +1,22 @@
+<div class = "notes-list">
+
+    <h5> {{ note.noteTitle }} </h5>
+
+    <hr>
+
+    <p *ngIf = "!toggleFullDescription"> {{ slicedText }} </p>
+    <p *ngIf = "toggleFullDescription"> {{ note.noteDescription }} </p>
+
+    <button
+        type = "button"
+        class = "btn btn-info btn-sm"
+        *ngIf = "!minimumText"
+        (click) = "onToggleFullText()">
+        Show Full Text
+    </button>
+
+    <hr>
+
+    <p><strong> Created on : </strong> {{ note.noteCreatedOn }} </p>
+
+</div>

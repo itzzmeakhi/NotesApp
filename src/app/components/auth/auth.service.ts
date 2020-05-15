@@ -37,7 +37,8 @@ export class AuthService {
                     null,
                     userData.userName,
                     userData.userLocation,
-                    responseData.localId
+                    responseData.localId,
+                    null
                     );
                 return this.http.post<string>('https://notesapp-f9b95.firebaseio.com/users.json', newUserData)
             })
@@ -60,11 +61,11 @@ export class AuthService {
     onLogout() {
         this.userLoggedIn.next(null);
         localStorage.removeItem('userNotesApp');
-        this.router.navigate(['/login']);
         if(this.expirationTimer) {
             clearTimeout(this.expirationTimer);
         }
         this.expirationTimer = null;
+        this.router.navigate(['/login']);
     }
 
     onAutoLogin() {
@@ -84,9 +85,11 @@ export class AuthService {
             this.userLoggedIn.next(savedUser);
             const expiresIn : number = new Date(savedUser.expirationDate).getTime() - new Date().getTime();
             this.autoLogout(expiresIn);
+            this.router.navigate(['/home']);
             return true;
         } else {
             localStorage.removeItem('userNotesApp');
+            this.router.navigate(['/login']);
             return false;
         }
 

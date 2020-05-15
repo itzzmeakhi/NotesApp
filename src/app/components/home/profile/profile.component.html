@@ -1,1 +1,15 @@
-<p>profile works!</p>
+<div class = "profile-container" *ngIf = "!isLoading">
+
+    <h5> {{ userDetails?.userName }}  </h5>
+    <hr>
+    <p> Email : {{ userDetails?.userEmail }} </p>
+    <p> Lives in : {{ userDetails?.userLocation }} </p>
+    <p> No of notes saved : {{ userDetails?.userNotes.length }} </p>
+
+</div>
+
+<div class = "spinner" *ngIf = "isLoading">
+    <div class = "spinner-border" role = "status" style = "width: 3rem; height: 3rem;">
+      <span class = "sr-only">Loading...</span>
+    </div>
+</div>

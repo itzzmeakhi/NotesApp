@@ -1,8 +1,9 @@
 <div class = "navbar-section">
 
     <a 
-        routerLink = "/"
-        routerLinkActive = "active">
+        routerLink = "/home"
+        routerLinkActive = "active"
+        [routerLinkActiveOptions]="{ exact: true }">
         Add Note
     </a>
 
@@ -16,6 +17,11 @@
         routerLink = "/home/profile"
         routerLinkActive = "active">
         Profile
+    </a>
+
+    <a
+        (click) = "onLogout()">
+        Logout
     </a>
     
 </div>
